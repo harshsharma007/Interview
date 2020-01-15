@@ -106,4 +106,7 @@ namespace Interview
             return area;
         }
     }
+
+    //Now our code is following SRP and OCP both. Whenever you introduce a new shape by deriving from the "Shape" abstract class, you need not change the
+    //"AreaCalculator" class.
 }
