@@ -58,6 +58,8 @@ namespace Interview
             (obj as IPen).Write("Test");
             (obj as IPod).Write("Test");
             //obj.Write("Test"); -> Error, because which one to call?
+            obj.Open();
+            obj.Close();
         }
     }
 
