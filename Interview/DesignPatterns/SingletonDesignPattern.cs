@@ -163,9 +163,20 @@ namespace Interview.DesignPatterns
         //4. Thread Safe Singleton without using locks and no lazy instantiation
         //Explanation of the code:
 
-        //1. The preceding implementation looks like very simple code.
-        //2. This type of implementation has a static constructor, so it executes only once per Application Domain.
-        //3. It is not as lazy as the other implementation.
+        //As you can see, this is extremely simple - but why is it thread-safe and how lazy is it? Well, static constructors in C# are specified to execute only when an instance of the class is
+        //created or a static member is referenced and to execute only once per AppDomain. Given that this check for the type being newly constructed needs to be executed whatever else happens, it will
+        //be faster than adding extra checking as in the previous examples. There are couple of wrinkles, however:
+        //1. It's not as lazy as the other implementations. In particular, if you have static members other than Instance, the first reference to those members will involve creating the instance.
+        //This is corrected in the next implementation.
+        //2. There are complications if one static constructor invokes another which invokes the first again. Look in the .Net specifications (currently section 9.5.3 of partition II) for more details
+        //about the exact nature of type initializers - they're unlikely to bite you, but it's worth being aware of the consequences of static constructors which refer to each other in a cycle.
+        //3. The laziness of type initializers is only guaranteed by .Net when the type isn't marked with a special flag called beforefieldinit. Unfortunately, the C# compiler (as provided in the .Net
+        //1.1 runtime, at least) marks all types which don't have a static constructor (i.e. a block which looks like a constructor but is marked static) as beforefieldinit. Also note, that it affects
+        //performance, as discussed near the bottom of the page.
+
+        //One shortcut you can take with this implementation (and only this one) is to just make instance a public static readonly variable and get rid of the property entirely. This makes the basic
+        //skeleton code absolutely tiny! Many people, however, prefer to have a property in case further action is needed in future, and JIT inlining is likely to make the performance identical.
+        //(Note that the static constructor itself is still required if you require laziness).
 
         public sealed class SingletonNoLazy
         {
@@ -194,12 +205,9 @@ namespace Interview.DesignPatterns
         //5. Full lazy instantiation
         //Explanation of the code:
 
-        //1. Here, instantiation is triggered by the first reference to the static member of the nested class, that only occurs in instance.
-        //2. This means the implementation is fully lazy, but has all the performance benefits of the previous ones.
-        //3. Note that although nested classes have access to the enclosing class's private members, the reverse is not true, hence the need for instance to be
-        //internal here.
-        //4. That doesn't raise any other problems, though, as the class itself is private.
-        //5. The code is more complicated in order to make the instantiation lazy.
+        //Here, instantiation is triggered by the first reference to the static member of the nested class, that only occurs in Instance. This means the implementation is fully lazy, but has all the
+        //performance benefits of the previous ones. Note that although nested classes have access to the enclosing class's private members, the reverse is not true, hence the need for instance to be
+        //internal here. That doesn't raise any other problems, though, as the class itself is private. The code is more complicated in order to make the instantiation lazy, however.
 
         public sealed class SingletonLazy
         {
@@ -230,9 +238,11 @@ namespace Interview.DesignPatterns
         //6. Using .Net 4's Lazy<T> type
         //Explanation of the code:
 
-        //1. If you're using .Net 4 (or higher) then you can use the System.Lazy<T> type to make the laziness really simple.
-        //2. All you need to do is pass a delegate to the constructor that calls the Singleton constructor, which is done most easily with a lambda expression.
-        //3. It also allows you to check whether or not the instance has been created with the IsValueCreated property.
+        //If you're using .Net 4 (or higher) then you can use the System.Lazy<T> type to make the laziness really simple. All you need to do is pass a delegate to the constructor that calls the Singleton
+        //constructor - which is done most easily with a lambda expression.
+        //It's simple and performs well. It also allows you to check whether or not the instance has been created yet with the IsValueCreated property, if you need that.
+        //The code below implicitly uses LazyThreadSafetyMode.ExecutionAndPublication as the thread safety mode for the Lazy<Singleton>. Depending on your requirements, you may wish to experiment with
+        //other models.
 
         public sealed class SingletonLazyType
         {
@@ -311,5 +321,44 @@ namespace Interview.DesignPatterns
                 Console.ReadLine();
             }
         }
+
+        //Performance vs Laziness
+        //In many cases, you won't actually require full laziness - unless your class initialization does something particularly time-consuming or has some side-effect elsewhere, it's probably fine
+        //to leave out the explicit static constructor shown above. This can increase performance as it allows the JIT compiler to make a single check (for instance at the start of a method) to
+        //ensure that the type has been initialized and then assume it from then on. If your singleton instance is referenced within a relatively tight loop, this can make a (relatively) significant
+        //performance difference. You should decide whether or not fully lazy instantiation is required and document this decision appropriately within the class.
+
+        //A lot of reason for this page's existence is people trying to be clever and thus coming up with the double-checked locked algorithm. There is an attitude of locking being expensive which
+        //is common and misguided. I've written a very quick benchmark which just acquires singleton instances in a loop a billion ways, trying different variants. It's not terribly scientific,
+        //because in real life you may want to know how fast it is if each iteration actually involved a call into a method fetching the singleton, etc. However, it does show an important point.
+        //On my laptop, the slowest solution (by a factor of about 5) is the locking one (solution 2). Is that important? Probably not, when you bear in mind that it still managed to acquire the
+        //singleton a billion times in under 40 seconds. (Note: this article was originally written quite a while ago now - I'd expect better performance now). That means that if you're "only"
+        //acquiring the singleton four hundred thousand times per second, the cost of the acquisition is going to be 1% of the performance - so improving it isn't going to do a lot. Now, if you are
+        //acquiring the singleton that often - isn't it likely you're using it within a loop? If you care that much about improving the performance a little bit, why not declare a local variable
+        //outside the loop, acquire the singleton once and then loop. Bingo, event the slowest implementation becomes easily adequate.
+
+        //I would be very interested to see a real world application where the difference between using simple locking and using one of the faster solutions actually made a significant performance
+        //difference.
+
+        //Exceptions
+        //Sometimes, you need to do work in a singleton constructor which may throw an exception, but might not be fatal to the whole application. Potentially, your application may be able to fix
+        //the problem and want to try again. Using type initializers to construct the singleton becomes problematic at this stage. Different runtimes handle this case differently, but I don't know
+        //of any which do the desired thing (running the type initializer again), and even if one did, your code would be broken on other runtimes. To avoid these problems, I'd suggest using the
+        //second pattern listed on the page - just use a simple lock, and go through the check each time, building the instance in the method/property if it hasn't already been successfully built.
+
+        //Conclusion
+        //There are various different ways of implementing the singleton pattern in C#. A reader has written to me detailing a way he has encapsulated the synchronization aspect, which while I
+        //acknowledge may be useful in a few particular situations (specifically where you want very high performance and the ability to determine whether or not the singleton has been created and
+        //full laziness regardless of other static members being called). I don't personally see that situation coming up often enough to merit going further with on this page.
+
+        //My personal preference is for solution 4: the only time I would normally go away from it is if I needed to be able to call other static methods without triggering initialization or if I needed
+        //to know whether or not the singleton has already been instantiated. I don't remember the last time I was in that situation, assuming I even have. In that case, I'd probably go for solution 2,
+        //which is still nice and easy to get right.
+
+        //Solution 5 is elegant, but trickier than 2 or 4, and as I said above, the benefits it provides seem to only be rarely useful. Solutio 6 is a simpler way to achieve laziness, if you're using
+        //.Net 4. It also has the advantage that it's obviously lazy. I currently tend to still use solution 4, simply through habit - but if I were working with inexperienced developers I'd quite
+        //possibly go for solution 6 to start with as an easy and universally applicable pattern.
+
+        //I wouldn't use solution 1 because it's broken and I wouldn't use solution 3 because it has no benefits over 5.
     }
 }
