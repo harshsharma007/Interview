@@ -1,4 +1,5 @@
 ﻿using System;
+using Interview.Common;
 
 namespace Interview
 {
@@ -6,7 +7,8 @@ namespace Interview
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            NewProgram program = new NewProgram();
+            program.Method();
         }
     }
 }
