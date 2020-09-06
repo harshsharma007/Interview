@@ -7,16 +7,18 @@ namespace Interview
 {
     class LiskovSubstitutionPrinciple
     {
-        //The Liskov Substitution Principle (LSP) states that "you should be able to use any derived class instead of a parent class and have it behave in the"
-        //"same manner without modification". It ensures that a derived class does not affect the behavior of the parent class, in other words that a derived
-        //class must be substitutable for its base class.
+        /*
+            The Liskov Substitution Principle (LSP) states that "you should be able to use any derived class instead of a parent class and have it behave in the"
+            "same manner without modification". It ensures that a derived class does not affect the behavior of the parent class, in other words that a derived
+            class must be substitutable for its base class.
 
-        //This principle is just an extension of the Open Close Principle and it means that we must ensure that new derived classes extend the base classes
-        //without changing the behavior. Below is the example that violates LSP.
+            This principle is just an extension of the Open Close Principle and it means that we must ensure that new derived classes extend the base classes
+            without changing the behavior. Below is the example that violates LSP.
 
-        //Suppose we need to build an app to manage data using a group of SQL file text. Here we need to write functionality to load and save the text of a
-        //group of SQL files in the application directory. So we need a class that manages the load and saves the text of group of SQL files along with SQLFile
-        //class.
+            Suppose we need to build an app to manage data using a group of SQL file text. Here we need to write functionality to load and save the text of a
+            group of SQL files in the application directory. So we need a class that manages the load and saves the text of group of SQL files along with SQLFile
+            class.
+        */
     }
 
     public class SqlFile
@@ -58,8 +60,10 @@ namespace Interview
         }
     }
 
-    //The functionality looks good for now. After sometime our lead might tell us that we may have a few read-only files in the application folder, so we need to
-    //restrict the flow whenever it tries to do a save on them.
+    /*
+        The functionality looks good for now. After sometime our lead might tell us that we may have a few read-only files in the application folder, so we need to
+        restrict the flow whenever it tries to do a save on them.
+    */
 
     public class SqlFileChanged
     {
@@ -117,9 +121,11 @@ namespace Interview
         }
     }
 
-    //Here we have altered the SaveTextIntoFiles() in the SqlFileManagerChanged class to determine whether or not the instance is of ReadOnlySqlFile to avoid the
-    //exception. We can't use the ReadOnlySqlFile class as a substitute of its parent without altering SqlFileManager code. So we can say that this design is not
-    //following LSP. Let's make this design follow the LSP.
+    /*
+        Here we have altered the SaveTextIntoFiles() in the SqlFileManagerChanged class to determine whether or not the instance is of ReadOnlySqlFile to avoid the
+        exception. We can't use the ReadOnlySqlFile class as a substitute of its parent without altering SqlFileManager code. So we can say that this design is not
+        following LSP. Let's make this design follow the LSP.
+    */
 
     public interface IReadableSqlFile
     {
@@ -179,8 +185,10 @@ namespace Interview
         }
     }
 
-    //Here the GetTextFromFiles() method gets only the list of instances of classes that implement the IReadOnlySqlFile interface. That means the SqlFileNew and
-    //ReadOnlySqlFile class instances and the SaveTextIntoFiles() method gets only the list instances of the class that implements the IWritableSqlFiles interface.
-    //In other words, SqlFileNew instances in this case. Now we can say our design is following the LSP. And we have fixed the problem using the
-    //Interface Segregation Principle (ISP) by identifying the abstraction and the responsibility separation method.
+    /*
+        Here the GetTextFromFiles() method gets only the list of instances of classes that implement the IReadOnlySqlFile interface. That means the SqlFileNew and
+        ReadOnlySqlFile class instances and the SaveTextIntoFiles() method gets only the list instances of the class that implements the IWritableSqlFiles interface.
+        In other words, SqlFileNew instances in this case. Now we can say our design is following the LSP. And we have fixed the problem using the
+        Interface Segregation Principle (ISP) by identifying the abstraction and the responsibility separation method.
+    */
 }
