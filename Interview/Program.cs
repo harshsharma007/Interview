@@ -1,4 +1,5 @@
 ﻿using System;
+using Interview.Basic;
 using Interview.Common;
 
 namespace Interview
@@ -22,8 +23,10 @@ namespace Interview
     {
         static void Main(string[] args)
         {
-            NewProgram program = new NewProgram();
-            program.Method();
+            ChessExercise chessExercise = new ChessExercise();
+            chessExercise.Chess();
+            //NewProgram program = new NewProgram();
+            //program.Method();
         }
     }
 }

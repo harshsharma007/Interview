@@ -100,12 +100,31 @@ namespace Interview.Basic
 
             Console.WriteLine("Do-While Loop");
             Console.WriteLine("");
-            
+
             do
             {
                 Console.WriteLine("doCounter is at " + doCounter);
                 doCounter++;
             } while (doCounter < 5);
+
+            /*
+                The difference between while and do while loop is that the do loop will execute the content of the loop at least once because the condition check
+                doesn't happen until the end of the loop itself.
+            */
+
+            long value = Factorial(10);
+            Console.WriteLine(value);
+        }
+
+        // Recursion sample
+        static long Factorial(int n)
+        {
+            Console.WriteLine("Recursion");
+            if (n == 0)
+            {
+                return 1;
+            }
+            return n * Factorial(n - 1);
         }
     }
 }
