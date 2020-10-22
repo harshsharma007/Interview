@@ -32,6 +32,13 @@ namespace Interview.Basic
             rValue = "";
             ReturnMultiRef(ref first, ref rValue);
             Console.WriteLine("{0} {1}", first.ToString(), sValue);
+
+            // Using named parameters
+            Area(length: 30, width: 50);
+
+            // Using optional parameters
+            OptionalParams(10, 20);
+            OptionalParams(10, 20, "Non-default text");
         }
 
         /*
@@ -50,6 +57,24 @@ namespace Interview.Basic
         {
             a = 50;
             b = "using ref";
+        }
+
+        // Using named parameters
+        static void Area(int length, int width)
+        {
+            Console.WriteLine("The area is {0}", length * width);
+        }
+
+        // Using optional parameters
+        static void OptionalParams(int one, int two, string s = "Default text")
+        {
+            Console.WriteLine("{0}, {1}, {2}", one, two, s);
+        }
+
+        // This is because mandatory parameters are defined first and optional in the end.
+        static void AnotherOptionalParams(int one, string s = "New", int two = 2)
+        {
+            Console.WriteLine("{0} {1} {2}", one, s, two);
         }
     }
 }
