@@ -35,6 +35,21 @@ namespace Interview.ComplexDataStructure
             
             // Number will contain the value 3
             int number = oldNumbers[2];
+
+            Note: Arrays are zero-indexed, so the first element in any dimension in an array is at index zero. The last element in a dimension is at index N-1, where
+            N is the size of the dimension. If you attempt to access an element outside this range, the CLR throws an IndexOutOfRangeException exception.
+
+            You can iterate through an array by using a for loop. You can use the Length property of the array to determine when to stop the loop.
+            
+            The following code example shows how to use a for loop to iterate through an array.
+            
+            // Iterating over an array
+            
+            int[] oldNumbers = { 1, 2, 3, 4, 5 };
+            for(int i = 0; i < oldNumbers.Length; i++)
+            {
+                int number = oldNumbers[i];
+            }
         */
     }
 }
