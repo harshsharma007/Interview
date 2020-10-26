@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using Interview.Basic;
 using Interview.Common;
 using Interview.ComplexDataStructure;
@@ -24,10 +25,9 @@ namespace Interview
     {
         static void Main(string[] args)
         {
-            ArrayDemo arrayDemo = new ArrayDemo();
-            arrayDemo.DifferentArrays();
-            //ChessExercise chessExercise = new ChessExercise();
-            //chessExercise.Chess();
+            StructDemo structDemo = new StructDemo();
+            structDemo.StructExample();
+
             //NewProgram program = new NewProgram();
             //program.Method();
         }
