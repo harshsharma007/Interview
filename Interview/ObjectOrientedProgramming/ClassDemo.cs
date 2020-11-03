@@ -8,10 +8,13 @@ namespace Interview.ObjectOrientedProgramming
     {
         public void MainMethod()
         {
-            DrinksMachine drinksMachine = new DrinksMachine();
-            drinksMachine._location = "Kitchen";
-            drinksMachine._model = "DM1000";
-            drinksMachine._make = "DM";
+            DrinksMachine drinksMachine = new DrinksMachine("Kitchen", "Brand", "DM1000");
+            //drinksMachine.Location = "Kitchen";
+            //drinksMachine.Model = "DM1000";
+            //drinksMachine.Make = "DM";
+            Console.WriteLine(drinksMachine.Location);
+            Console.WriteLine(drinksMachine.Make);
+            Console.WriteLine(drinksMachine.Model);
             drinksMachine.MakeCappuccino();
         }
     }

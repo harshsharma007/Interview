@@ -38,8 +38,49 @@ namespace Interview.ObjectOrientedProgramming
             your class. Recall method overloading.
             
             The following example shows how to add multiple constructors to a class:
-            
-            
         */
+    }
+
+    // Adding Multiple Constructors
+    public class DrinksMachineMultipleConstructor
+    {
+        public int Age { get; set; }
+        public string Make { get; set; }
+        public string Model { get; set; }
+
+        public DrinksMachineMultipleConstructor(int age)
+        {
+            this.Age = age;
+        }
+
+        public DrinksMachineMultipleConstructor(string make, string model)
+        {
+            this.Make = make;
+            this.Model = model;
+        }
+
+        public DrinksMachineMultipleConstructor(int age, string make, string model)
+        {
+            this.Age = age;
+            this.Make = make;
+            this.Model = model;
+        }
+    }
+
+    /*
+        Consumers of your class can use any of the constructors to create instances of your class, depending on the information that is available to them at the time.
+        For example:
+    */
+
+    class Consumer
+    {
+        public Consumer()
+        {
+            var dm1 = new DrinksMachineMultipleConstructor(2);
+            var dm2 = new DrinksMachineMultipleConstructor("Fourth Coffee", "BeanCrusher 3000");
+            var dm3 = new DrinksMachineMultipleConstructor(3, "Fourth Coffee", "BeanToaster Turbo");
+
+            Console.WriteLine("{0} {1} {2}", dm1, dm2, dm3);
+        }
     }
 }
