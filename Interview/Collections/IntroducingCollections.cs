@@ -31,7 +31,26 @@ namespace Interview.Collections
             1. List classes store linear collections of items. You can think of a list class as a one-dimensional array that dynamically expands as you add items.
                For example, you might use a list class to maintain a list of available beverages at your coffee shop.
             
-            2. Dictionary classes store a collection of key/value pairs.
+            2. Dictionary classes store a collection of key/value pairs. Each item in the collection consists of two objects - the key and the value. The value is the
+               object you want to store and retrieve, and the key is the object that you use to index and look up the value. In most dictionary classes, the key must
+               be unique, whereas duplicate values are perfectly acceptable. For example, you might use a dictionary class to maintain a list of coffee recipes. The
+               key would contain the unique name of the coffee, and the value would contain the ingredients and the instructions for making the coffee.
+            
+            3. Queue classes represent a first in, first out collection of objects. Items are retreived from the collection in the same order they were added. For
+               example, you might use a queue class to process orders in a coffee shop to ensure that customers receive their drinks in turn.
+            
+            4. Stack classes represent a last in, first out collection of objects. The item that you added to the collection last is the first item you retrieve.
+               For example, you might use a stack class to determine the 10 most recent visitors to your coffee shop.
+            
+            When you choose a built-in collection class for a specific scenario, ask yourself the following questions:
+            
+            1. Do you need a list, a dictionary, a stack or a queue?
+            2. Will you need to sort the collection?
+            3. How large do you expect the collection to get?
+            4. If you are using a dictionary class, will you need to retrieve items by index as well as by key?
+            5. Does your collection consist solely of strings?
+            
+            If you can answer all of these questions, you will be able to select the Visual C# collection class that best meets your needs.
         */
     }
 }
