@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Interview.Collections
+namespace Interview.EDX.Collections
 {
     class QueryCollections
     {

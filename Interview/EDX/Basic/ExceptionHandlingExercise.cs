@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Transactions;
 
-namespace Interview.Basic
+namespace Interview.EDX.Basic
 {
     class ExceptionHandlingExercise
     {

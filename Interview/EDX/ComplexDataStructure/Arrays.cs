@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Interview.ComplexDataStructure
+namespace Interview.EDX.ComplexDataStructure
 {
     class Arrays
     {

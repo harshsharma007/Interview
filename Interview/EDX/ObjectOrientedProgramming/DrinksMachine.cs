@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Interview.ObjectOrientedProgramming
+namespace Interview.EDX.ObjectOrientedProgramming
 {
     /*
         Encapsulation can have a couple of meanings depending on how you look at it. It could be simply meaning that all we're going to ensure we encapsulate

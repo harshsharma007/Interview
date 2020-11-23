@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Interview.ObjectOrientedProgramming
+namespace Interview.EDX.ObjectOrientedProgramming
 {
     class Constructors
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.ExceptionServices;
 using System.Text;
 
-namespace Interview.Basic
+namespace Interview.EDX.Basic
 {
     class MethodsExercise
     {
