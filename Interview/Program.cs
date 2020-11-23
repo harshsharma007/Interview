@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Numerics;
-using Interview.Basic;
+using Interview.EDX.Basic;
 using Interview.Common;
-using Interview.ComplexDataStructure;
+using Interview.EDX.ComplexDataStructure;
 
 namespace Interview
 {
