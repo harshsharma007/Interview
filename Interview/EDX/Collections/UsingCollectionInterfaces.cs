@@ -27,8 +27,7 @@ namespace Interview.EDX.Collections
             The ICollection<T> interface defines the basic functionality that is common to all generic collections. The interface inherits from IEnumerable<T>, which
             means that if you want to implement ICollection<T>, you must also implement the members defined by IEnumerable<T> and IEnumerable.
             
-            The ICollection<T> interface defines the following methods:
-            
+            The ICollection<T> interface defines the following methods:            
             +-------------------+-----------------------------------------------------------------------------------+
             |       Name        |       Description                                                                 |
             +-------------------+-----------------------------------------------------------------------------------+
@@ -43,8 +42,7 @@ namespace Interview.EDX.Collections
             |       Remove      |       Removes a specific object from the collection.                              |
             +-------------------+-----------------------------------------------------------------------------------+
             
-            The ICollection<T> interface defines the following properties.
-            
+            The ICollection<T> interface defines the following properties.            
             +-------------------+-----------------------------------------------------------------------------------+
             |       Name        |       Description                                                                 |
             +-------------------+-----------------------------------------------------------------------------------+
@@ -59,8 +57,7 @@ namespace Interview.EDX.Collections
             indexers to work with the items in the collection. For example, if you create a list named myList, you can use myList[0] to access the first item in the
             collection.
             
-            The IList<T> interface defines the following methods:
-            
+            The IList<T> interface defines the following methods:            
             +-------------------+-----------------------------------------------------------------------------------+
             |       Name        |       Description                                                                 |
             +-------------------+-----------------------------------------------------------------------------------+
@@ -69,7 +66,44 @@ namespace Interview.EDX.Collections
             |      RemoveAt     |       Removes the item at the specified index from the collection.                |
             +-------------------+-----------------------------------------------------------------------------------+
             
+            The IList<T> interface defines the following properties:
+            +-------------------+-----------------------------------------------------------------------------------+
+            |       Name        |       Description                                                                 |
+            +-------------------+-----------------------------------------------------------------------------------+
+            |       IndexOf     |       Determines the position of a specified item in the collection.              |
+            +-------------------+-----------------------------------------------------------------------------------+
             
+            The IDictionary<TKey, TValue> Interface
+            The IDictionary<TKey, TValue> interface defines the core functionality for generic dictionary classes. You should implement this interface if you are defining a collection
+            of key-value pairs. In addition to the members it inherits from ICollection<T>, the IDictionary<T> interface defines methods and properties that are specific to working
+            with key-value pairs. The IDictionary<TKey, TValue> interface defines the following methods:
+            
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
+            |       Name        |       Description                                                                                                             |
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
+            |       Add         |       Adds an item with the specified key and value to the collection.                                                        |
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
+            |    ContainsKey    |       Indicates whether the collection includes a key-value pair with the specified key.                                      |
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
+            |   GetEnumerator   |       Returns an enumerator of KeyValuePair<TKey, TValue> objects.                                                            |
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
+            |      Remove       |       Removes the item with the specified key from the collection.                                                            |
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
+            |    TryGetValue    |       Attempts to set the value of an output parameter to the value associated with a specified key. If the key exists, the   |
+            |                   |       method returns true. If the key does not exist, the method returns false and the output parameter is unchanged.         |
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
+            
+            The IDictionary<TKey, TValue> interface defines the following properties:
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
+            |       Name        |       Description                                                                                                             |
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
+            |       Item        |       Gets or sets the value of an item in the collection, based on a specified key. This property enables you to use indexer |
+            |                   |       notation, for example myDictionary[myKey] = myValue                                                                     |
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
+            |       Keys        |       Returns the keys in the collection as an ICollection<T> instance.                                                       |
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
+            |       Values      |       Returns the value in the collection as an ICollection<T> instance.                                                      |
+            +-------------------+-------------------------------------------------------------------------------------------------------------------------------+
         */
     }
 }
