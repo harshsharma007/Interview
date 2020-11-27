@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections;
 
-namespace Interview.EDX.Collections
+namespace Interview.EDX.GenericCollections
 {
     class CreatingEnumerableCollections
     {

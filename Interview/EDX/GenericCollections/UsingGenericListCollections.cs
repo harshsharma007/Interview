@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Interview.EDX.Collections
+namespace Interview.EDX.GenericCollections
 {
     class UsingGenericListCollections
     {
