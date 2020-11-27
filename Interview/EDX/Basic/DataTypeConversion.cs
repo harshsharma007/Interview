@@ -7,18 +7,17 @@ namespace Interview.EDX.Basic
     class DataTypeConversion
     {
         /*
-            C# supports two inherent types of conversion (casting) for data types, implicit and explicit. C# will use implicit conversion where it can, mostly in the
-            case when a conversion will not result in a loss of data or when the conversion is possible with a compatible data type. The following is an example of an
-            implicit data conversion.
+            C# supports two inherent types of conversion (casting) for data types, implicit and explicit. C# will use implicit conversion where it can, mostly in the case when a
+            conversion will not result in a loss of data or when the conversion is possible with a compatible data type. The following is an example of an implicit data conversion.
             
             Converting from smaller to larger integral types:
             
             int myInt = 2147483647;
             long myLong = myInt;
             
-            The long type has a 64-bit size in memory while the int type uses 32-bits. Therefore, the long can easily accomodate any value stored in the int type.
-            Going from a long to an int may result in data loss however and you should use explicit casting for that. Explicit casts are accomplished in one of two
-            ways as demonstrated with the following coe sample.
+            The long type has a 64-bit size in memory while the int type uses 32-bits. Therefore, the long can easily accomodate any value stored in the int type. Going from a long to 
+            an int may result in data loss however and you should use explicit casting for that. Explicit casts are accomplished in one of two ways as demonstrated with the following
+            code sample.
             
             double myDouble = 1234.6;
             int myInt;
@@ -33,12 +32,12 @@ namespace Interview.EDX.Basic
             myInt = Convert.ToInt32(myDouble);
             
             You will find many other methods in the Convert class that cast to different intergral data types such as ToBoolean(), ToByte(), ToChar() etc.
-            The Convert.ToInt32() method can also be used to cast a string literal to a numeric data type. For example, you may have GUI-based application in which
-            uses input data into text boxes. These values are string values when passed to the code in your application. Use of the above method to cast the string
-            to numbers can help prevent exceptions in your code when trying to use the wrong data type in a specific area.
+            The Convert.ToInt32() method can also be used to cast a string literal to a numeric data type. For example, you may have GUI-based application in which user input data into
+            text boxes. These values are string values when passed to the code in your application. Use of the above method to cast the string to numbers can help prevent exceptions in
+            your code when trying to use the wrong data type in a specific area.
             
-            C# also provides another mechanism to deal with casting types. The use of the TryParse() method and Parse() methods can help with casting as well. These
-            methods are attached to the types in C# rather than the Convert class. An example will help demonstrate.
+            C# also provides another mechanism to deal with casting types. The use of the TryParse() method and Parse() methods can help with casting as well. These methods are attached
+            to the types in C# rather than the Convert class. An example will help demonstrate.
             
             // TryParse() example
             bool result = Int32.TryParse(value, out number);
@@ -46,8 +45,8 @@ namespace Interview.EDX.Basic
             // Parse() example
             int number = Int32.Parse(value);
             
-            In the TryParse() example, the method returns a Boolean result indicating if the conversion succeeded. In the Parse() example, if the conversion does not
-            succeed, an exception will be thrown.
+            In the TryParse() example, the method returns a Boolean result indicating if the conversion succeeded. In the Parse() example, if the conversion does not succeed, an 
+            exception will be thrown.
         */
     }
 }
