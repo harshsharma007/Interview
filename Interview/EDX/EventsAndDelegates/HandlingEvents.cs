@@ -37,8 +37,21 @@ namespace Interview.EDX.EventsAndDelegates
 
         public void SubscribeToEvent()
         {
-            Collections.Coffee coffee1 = new Collections.Coffee(1, "", "");
-            coffee1 += HandleOutOfBeans;
+            // coffee1.OutOfBeans += HandleOutOfBeans;
+        }
+
+        /*
+            In this example, the signature of the HandleOutOfBeans method matches the delegate for the OutOfBeans event. When you call the SubscribeToEvent method, the
+            HandleOutOfBeans method is added to the list of subscribers for the OutOfBeans event on the coffee1 object.
+        
+            To unsubscribe from an event, you use the substraction assignment operator (-+) to remove your event handler method from the event.
+            The following exmaple shows how to unsubscribe from an event:
+        */
+
+        // Unsubscribing from an Event
+        public void UnsubscribeFromEvent()
+        {
+            // coffee1.OutOfBeans -= HandleOutOfBeans;
         }
     }
 }
