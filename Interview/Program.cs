@@ -2,7 +2,7 @@
 using System.Numerics;
 using Interview.EDX.Basic;
 using Interview.Common;
-using Interview.EDX.ComplexDataStructure;
+using Interview.Questions;
 
 namespace Interview
 {
@@ -25,8 +25,8 @@ namespace Interview
     {
         static void Main(string[] args)
         {
-            StructDemo structDemo = new StructDemo();
-            structDemo.StructExample();
+            StringExtend stringExtend = new StringExtend();
+            stringExtend.Extend();
 
             //NewProgram program = new NewProgram();
             //program.Method();

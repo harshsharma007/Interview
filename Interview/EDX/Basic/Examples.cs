@@ -34,11 +34,11 @@ namespace Interview.EDX.Basic
             Console.WriteLine(fullName);
             
             /*
-                Below is the more recommended coding convention of C#. Here we are using placeholders within the text output and then we assign the variable names
-                that go into those placeholders.
+                Below is the more recommended coding convention of C#. Here we are using placeholders within the text output and then we assign the variable names that go into those 
+                placeholders.
 
-                Notice that these here are just sequentially assigned numbers, within the curly braces, enclosed in double quotations, separated by a comma and then
-                the variable names that will go into it.
+                Notice that these here are just sequentially assigned numbers, within the curly braces, enclosed in double quotations, separated by a comma and then the variable names 
+                that will go into it.
             */
             Console.WriteLine("{0} {1}", firstName, lastName);
             #endregion
