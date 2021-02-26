@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Numerics;
-using Interview.EDX.Basic;
-using Interview.Common;
 using Interview.Questions;
+using Interview.LINQ;
 
 namespace Interview
 {
@@ -30,6 +28,9 @@ namespace Interview
 
             //NewProgram program = new NewProgram();
             //program.Method();
+
+            SelectVsSelectMany selectVsSelectMany = new SelectVsSelectMany();
+            selectVsSelectMany.MainMethod();
         }
     }
 }
