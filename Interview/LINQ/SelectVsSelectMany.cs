@@ -12,7 +12,7 @@ namespace Interview.LINQ
             Or
             What are the two projection operators available in C#?
 
-            Select and SelectMany are projection operators. A select operator is used to select value from a collection and SelectMany operator is used to selecting
+            Select and SelectMany are projection operators. A select operator is used to select value from a collection and SelectMany operator is used to select
             values from a collection of collection i.e. nested collection.
             
             Select operator produces one result value for every source value while SelectMany produces a single result that contains a concatenated value for every
