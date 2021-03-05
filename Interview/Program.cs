@@ -1,6 +1,6 @@
 ﻿using System;
-using Interview.Questions;
-using Interview.LINQ;
+using Interview.Collections;
+using Interview.InterviewQuestionsAsked;
 
 namespace Interview
 {
@@ -29,8 +29,7 @@ namespace Interview
             //NewProgram program = new NewProgram();
             //program.Method();
 
-            SelectVsSelectMany selectVsSelectMany = new SelectVsSelectMany();
-            selectVsSelectMany.MainMethod();
+            ArrayListCollection arrayListCollection = new ArrayListCollection();
         }
     }
 }

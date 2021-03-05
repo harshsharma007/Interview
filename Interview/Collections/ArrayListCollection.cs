@@ -7,9 +7,9 @@ namespace Interview.Collections
     class ArrayListCollection
     {
         /*
-            It represents an ordered collection of an object that can be indexed individually. It is basically an alternative to an array. However, unlike array you can add and
-            remove items from a list at a specified position using an index and the array resizes itself automatically. It also allows dynamic memory allocation, adding, searching
-            and sorting items in the list.
+            It represents an ordered collection of an object that can be indexed individually. It is basically an alternative to an array. However, unlike array you can 
+            add and remove items from a list at a specified position using an index and the array resizes itself automatically. It also allows dynamic memory allocation, 
+            adding, searching and sorting items in the list.
             
             Methods and Properties of ArrayList Class
             
@@ -96,13 +96,47 @@ namespace Interview.Collections
             Console.WriteLine("");
 
             ArrayList arrayListGetRange = new ArrayList();
-            arrayListGetRange = arrayList.GetRange(2, 10);
+            arrayListGetRange = arrayList.GetRange(2, 3);
 
             Console.WriteLine("The Content of New GetRange ArrayList is below:");
             foreach (var getRange in arrayListGetRange)
             {
                 Console.WriteLine(getRange);
             }
+
+            Console.WriteLine("The index of 3 is {0}", arrayListGetRange.IndexOf(3));
+
+            arrayListGetRange.Insert(0, 0);
+            foreach (var getRange in arrayListGetRange)
+            {
+                Console.WriteLine(getRange);
+            }
+
+            arrayListGetRange.InsertRange(0, arrayList);
+            foreach (var getRange in arrayListGetRange)
+            {
+                Console.WriteLine(getRange);
+            }
+
+            arrayList.Remove(1);
+            arrayList.RemoveAt(10);
+            arrayList.RemoveRange(1, 3);
+            arrayList.Reverse();
+
+            /*
+                Sort would only be able to sort one type. If an ArrayList contains more than one type of data like int, string etc it will throw an exception.
+            */
+            arrayList.Sort();
+
+            ArrayList arrayListSetRange = new ArrayList();
+            arrayListSetRange.Add("Zero");
+
+            /*
+                Copies the elements of a collection over a range of elements in the ArrayList.
+            */
+            arrayList.SetRange(0, arrayListSetRange);
+            
+            arrayList.TrimToSize();
         }
     }
 }
