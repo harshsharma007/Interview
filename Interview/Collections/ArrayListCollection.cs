@@ -27,37 +27,38 @@ namespace Interview.Collections
             +-----------------+-------------------------------------------------------------------------------+
             
             The following table lists some of the commonly used methods of the ArrayList class
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual int Add(object value)                     |   Adds an object to the end of the ArrayList.                                                             |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual void AddRange(ICollection c);             |   Adds the elements of an ICollection to the end of the ArrayList.                                        |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual void Clear();                             |   Removes all elements from the ArrayList.                                                                |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual bool Contains(object item);               |   Determines whether an element is in the ArrayList.                                                      |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual ArrayList GetRange(int index, int count); |   Returns an ArrayList which represents a subset of the elements in the source ArrayList.                 |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual int IndexOf(object);                      |   Returns the zero-based index of the first occurrence of a value in the ArrayList or in a portion of it. |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual void Insert(int index, object value);     |   Inserts an element into the ArrayList at the specified index.                                           |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual void InsertRange(int index, ICollection c)|   Inserts the elements of a collection into the ArrayList at the specified index.                         |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual void Remove(object obj);                  |   Removes the first occurrence of a specific object from the ArrayList.                                   |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual void RemoveAt(int index);                 |   Removes the element at the specified index of the ArrayList.                                            |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual void RemoveRange(int index, int count);   |   Removes a range of elements from the ArrayList.                                                         |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual void Reverse();                           |   Reverses the order of the elements in the ArrayList.                                                    |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual void SetRange(int index, ICollection c);  |   Copies the elements of a collection over a range of elements in the ArrayList.                          |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual void Sort();                              |   Sorts the elements in the ArrayList.                                                                    |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-            |   public virtual void TrimToSize();                        |   Sets the capacity to the actual number of elements in the ArrayList.                                    |
-            +------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual int Add(object value)                     |   Adds an object to the end of the ArrayList.                                                |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual void AddRange(ICollection c);             |   Adds the elements of an ICollection to the end of the ArrayList.                           |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual void Clear();                             |   Removes all elements from the ArrayList.                                                   |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual bool Contains(object item);               |   Determines whether an element is in the ArrayList.                                         |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual ArrayList GetRange(int index, int count); |   Returns an ArrayList which represents a subset of the elements in the source ArrayList.    |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual int IndexOf(object);                      |   Returns the zero-based index of the first occurrence of a value in the ArrayList or in a   |
+            |                                                            |   portion of it.                                                                             |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual void Insert(int index, object value);     |   Inserts an element into the ArrayList at the specified index.                              |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual void InsertRange(int index, ICollection c)|   Inserts the elements of a collection into the ArrayList at the specified index.            |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual void Remove(object obj);                  |   Removes the first occurrence of a specific object from the ArrayList.                      |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual void RemoveAt(int index);                 |   Removes the element at the specified index of the ArrayList.                               |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual void RemoveRange(int index, int count);   |   Removes a range of elements from the ArrayList.                                            |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual void Reverse();                           |   Reverses the order of the elements in the ArrayList.                                       |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual void SetRange(int index, ICollection c);  |   Copies the elements of a collection over a range of elements in the ArrayList.             |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual void Sort();                              |   Sorts the elements in the ArrayList.                                                       |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+            |   public virtual void TrimToSize();                        |   Sets the capacity to the actual number of elements in the ArrayList.                       |
+            +------------------------------------------------------------+----------------------------------------------------------------------------------------------+
         */
 
         public ArrayListCollection()

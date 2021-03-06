@@ -29,7 +29,7 @@ namespace Interview
             //NewProgram program = new NewProgram();
             //program.Method();
 
-            ArrayListCollection arrayListCollection = new ArrayListCollection();
+            SortedListCollection sortedListCollection = new SortedListCollection();
         }
     }
 }
