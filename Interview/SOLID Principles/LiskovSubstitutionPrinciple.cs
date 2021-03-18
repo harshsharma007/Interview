@@ -9,15 +9,14 @@ namespace Interview
     {
         /*
             The Liskov Substitution Principle (LSP) states that "you should be able to use any derived class instead of a parent class and have it behave in the"
-            "same manner without modification". It ensures that a derived class does not affect the behavior of the parent class, in other words that a derived
-            class must be substitutable for its base class.
+            "same manner without modification". It ensures that a derived class does not affect the behavior of the parent class, in other words that a derived class 
+            must be substitutable for its base class.
 
-            This principle is just an extension of the Open Close Principle and it means that we must ensure that new derived classes extend the base classes
-            without changing the behavior. Below is the example that violates LSP.
+            This principle is just an extension of the Open Close Principle and it means that we must ensure that new derived classes extend the base classes without 
+            changing the behavior. Below is the example that violates LSP.
 
-            Suppose we need to build an app to manage data using a group of SQL file text. Here we need to write functionality to load and save the text of a
-            group of SQL files in the application directory. So we need a class that manages the load and saves the text of group of SQL files along with SQLFile
-            class.
+            Suppose we need to build an app to manage data using a group of SQL file text. Here we need to write functionality to load and save the text of a group of 
+            SQL files in the application directory. So we need a class that manages the load and saves the text of group of SQL files along with SQLFile class.
         */
     }
 

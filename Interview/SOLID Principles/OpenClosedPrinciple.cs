@@ -9,9 +9,8 @@ namespace Interview
         /*
             The open/closed principle says "A software module/class is open for extension and closed for modification".
             Here "Open for extension" means, we need to design our module/class in such a way that the new functionality can be added only when new requirements
-            are generated.
-            "Closed for modification" means we have already developed a class and it has gone through unit testing. We should then not alter it until we find bugs.
-            As it says, a class should be open for extensions, we can use inheritance to do this.
+            are generated. "Closed for modification" means we have already developed a class and it has gone through unit testing. We should then not alter it until we 
+            find bugs. As it says, a class should be open for extensions, we can use inheritance to do this.
         */
     }
 
@@ -36,7 +35,6 @@ namespace Interview
     }
 
     //Rectangle class remains the same.
-
     class Circle
     {
         public double Radius { get; set; }
@@ -66,8 +64,7 @@ namespace Interview
         }
         /*
             Here we have introduced circle successfully. But, if we want to calculate the area of a triangle, then we again have to introduce if statement for it.
-            This means that the class is not closed for modification.
-            This can be fixed by introducing abstract class.
+            This means that the class is not closed for modification. This can be fixed by introducing abstract class.
         */
     }
 
