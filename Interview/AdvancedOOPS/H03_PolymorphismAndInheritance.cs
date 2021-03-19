@@ -317,6 +317,30 @@ namespace Interview.AdvancedOOPS
                 ClassC AAA
                 ClassA BBB
                 ClassA CCC
+                
+                Don't be scared of the long example that we have taken. This will help you to learn the concept in detail. We have already learned that we can initialize
+                a base object to a derived object. But vice versa will result into error. This leads to an instance of a base class being initialized to an instance of
+                the derived class. So the question is now that which method will be called when. The method from the base class or from the derived class.
+                
+                Point to remember: If the base class object declared the method virtual and the derived class used the modifier override, the derived class method will
+                get called. Otherwise the base class method will get executed. Therefore for virtual methods, the data type created is decided at run time only.
+                
+                Point to remember: All the methods not marked with virtual are non virtual, and the method to be called is decided at compile time, depending upon the
+                static data type of the object.
+                
+                If the object of a class is initialized to the same data type, none of the above rule would apply. Whenever we have a mismatch, we always need rules to
+                resolve the mismatch. So we can land up with a scenario where an object to a base class can call a method in the derived class.
+                
+                The object y that looks like of ClassB but is initialized here to the derived class, i.e. ClassA.
+                
+                y.AAA() first looks into the class ClassB. Here, it verifies whether the method AAA is marked virtual. The answer is an emphatic no and hence everything
+                comes to halt and the method AAA gets called from class ClassB.
+                
+                y.BBB also done the same thing, but the method now is defined virtual in class ClassB. Thus C# looks at the class ClassA, the one it was initialized to.
+                Here BBB is marked with the modifier "new". That means BBB is a new method which has nothing to do with the one in the base class. They only accidentally
+                share the same name. So as there is no method called BBB (as it is a new BBB) in the derived class, the one from base class gets called. In the scene
+                of y.CCC(), the same above steps are followed again, bu in the class ClassA, we see the modifier override, that by behavior overrides the method in
+                the base class. We are actually telling C# to call this method in class ClassA and not the one in the base class, i.e. ClassB.
             */
         }
     }

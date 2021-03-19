@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Interview.SOLID_Principles.Kudvenkat
 {
-    class SOLIDPrinciplesIntroduction
+    class H01_SOLIDPrinciplesIntroduction
     {
         /*
             - SOLID principles are the design principles that enable us manage most of the software design problems.
