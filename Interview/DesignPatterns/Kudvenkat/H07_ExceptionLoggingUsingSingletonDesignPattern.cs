@@ -6,5 +6,6 @@ namespace Interview.DesignPatterns.Kudvenkat
 {
     class H07_ExceptionLoggingUsingSingletonDesignPattern
     {
+
     }
 }
