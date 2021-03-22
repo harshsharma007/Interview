@@ -1,5 +1,5 @@
 ﻿using System;
-using Interview.Collections;
+using Interview.AdvancedOOPS;
 using Interview.InterviewQuestionsAsked;
 
 namespace Interview
@@ -29,7 +29,7 @@ namespace Interview
             //NewProgram program = new NewProgram();
             //program.Method();
 
-            SortedListCollection sortedListCollection = new SortedListCollection();
+            ABC obj = new ABC();
         }
     }
 }

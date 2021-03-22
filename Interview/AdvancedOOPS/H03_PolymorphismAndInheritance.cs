@@ -277,6 +277,11 @@ namespace Interview.AdvancedOOPS
             Console.WriteLine("ClassC AAA");
         }
 
+        public void BBB()
+        {
+            Console.WriteLine("ClassC BBB");
+        }
+
         public void CCC()
         {
             Console.WriteLine("ClassC CCC");
@@ -341,6 +346,24 @@ namespace Interview.AdvancedOOPS
                 share the same name. So as there is no method called BBB (as it is a new BBB) in the derived class, the one from base class gets called. In the scene
                 of y.CCC(), the same above steps are followed again, bu in the class ClassA, we see the modifier override, that by behavior overrides the method in
                 the base class. We are actually telling C# to call this method in class ClassA and not the one in the base class, i.e. ClassB.
+                
+                The object x which also looks like that of class ClassB is now initialized with an object that looks like our newly introduced class ClassC and not
+                ClassA like before. Since AAA is a non virtual method, it gets called from ClassB. In the case of method BBB, C# now looks into class ClassC. Here, it
+                does not find a method named BBB and so ultimately propogates and now looks into class ClassA. Therefore the above rules repeat on and on and it gets
+                called from class ClassB. In the case of x.CCC, in class ClassC, it is already marked new by default and therefore this method has nothing to do with
+                the one declared in class ClassB. So the one from ClassC does not get called but the one from class ClassB where it is marked as override.
+                
+                Now if we modify a bit our CCC method in ClassC and change it to the code as shown below:
+                
+                public override void CCC()
+                {
+                    Console.WriteLine("ClassC CCC");
+                }
+                
+                We changed default new to override, the CCC of ClassC will now be called.
+                
+                The last object z looks like that of ClassA but is now initialized to an object that looks like the derived class ClassC, we know we can do this.
+                So z.AAA() when called, looks first into class ClassA where it is flagged as virtual.
             */
         }
     }
