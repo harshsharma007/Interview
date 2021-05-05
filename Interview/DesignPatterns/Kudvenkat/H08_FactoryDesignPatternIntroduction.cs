@@ -27,6 +27,25 @@ namespace Interview.DesignPatterns.Kudvenkat
             Business Requirement (Simple Factory Example)
             Differentiate employees as permanent and contract and segregate their pay scales as well as bonus based on their employee types.
             (See FactoryDesignPatternIntroduction project).
+            
+            Simple Factory Representation
+            
+            +-------------+     uses      +-------------+   creates     +-------------+
+            |   Client    |-------------->|   Factory   |-------------->|   Product   |
+            +-------------+               +-------------+               +-------------+
+                                                +---+
+                                                |   |
+                                                |   |
+                                                |   |
+                                               _|   |_
+                                               \     /
+                                                \   /                                                                     +-----------+
+                                                 \ /                                                        +------------>| Permanent |
+            +---------------------+ Uses  +--------------------------+  Creates   +-----------+             |             +-----------+
+            | Employee Controller |------>| Employee Manager Factory |----------->| IEmployee |-------------|
+            +---------------------+       +--------------------------+            +-----------+             |             +-----------+
+                                                                                                            +------------>| Contract  |
+                                                                                                                          +-----------+
         */
     }
 }

@@ -29,7 +29,8 @@ namespace Interview
             //NewProgram program = new NewProgram();
             //program.Method();
 
-            ABC obj = new ABC();
+            AnotherThrowExceptionVsThrowClause throwExceptionVsThrowClause = new AnotherThrowExceptionVsThrowClause();
+            throwExceptionVsThrowClause.MainMethod();
         }
     }
 }
